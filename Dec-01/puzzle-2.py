@@ -11,7 +11,7 @@ for text in lines:
     if ("R" == direction):
         rem = (value % 100)
         if ((start + rem) > 99):
-            password += 1  # Capture whether the reminder + start goes beyond 100
+            password += 1  # Capture whether the remainder + start goes beyond 100
 
         password += math.floor(value / 100)  # Capture cycles
 
@@ -20,7 +20,7 @@ for text in lines:
     elif ("L" == direction):
         rem = (value % 100)
         if (start != 0 and (start - rem) <= 0):
-            password += 1  # Capture whether the start - reminder is less than 0
+            password += 1  # Capture whether the start - remainder is less than 0
 
         password += math.floor(value / 100)
         start = (start - value) % 100
