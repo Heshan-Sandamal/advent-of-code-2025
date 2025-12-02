@@ -1,4 +1,4 @@
-# advent-of-code-2024
+# advent-of-code-2025
 This Repository consists of my solutions for Advent of code 2025 and this is my third time doing the AOC.
 
 #### My solutions for AOC-2025
