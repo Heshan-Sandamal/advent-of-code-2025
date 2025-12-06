@@ -11,7 +11,7 @@ operations = [x for x in lines[-1].split(" ") if x != '']
 
 np_array = np.array(data)
 groups, group = [], []
-for i, x in enumerate(np_array[0]):
+for i in range(len(np_array[0])):
     val = "".join(np_array[:, i])
     if (val.isspace()):
         groups.append(group)
