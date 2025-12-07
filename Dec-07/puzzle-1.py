@@ -13,14 +13,12 @@ splits = set()
 while (len(beams) > 0):
 
     while (True):
-        beam = beams[0]
+        beam = beams.pop(0)
         x, y = beam[0] + 1, beam[1]
 
         if (x == len(grid)):
-            beams.remove((beam))
             break
         elif (grid[x][y] == "^"):
-            beams.remove((beam))
             splits.add((x, y))
 
             left, right = (x, y - 1), (x, y + 1)
@@ -33,6 +31,6 @@ while (len(beams) > 0):
 
             break
         else:
-            beams[0] = (x, y)
+            beams.append((x, y))
 
 print("Splits", len(splits))

@@ -29,20 +29,18 @@ for spt in splitters:
 
     count_per_splitter = 0
     while (len(beams) > 0):
-        beam = beams[0]
+        beam = beams.pop(0)
         x, y = beam[0] + 1, beam[1]
 
         if (x == len(grid)):
-            beams.remove((beam))
             count_per_splitter += 1
         elif (grid[x][y] == "^"):
             if ((x, y) in manifolds_dic_paths):
                 count_per_splitter += manifolds_dic_paths[(x, y)]  # paths += paths from splitter
-                beams.remove((beam))
             else:
                 exit()  # Should not reach since path should be already calculated
         else:
-            beams[0] = (x, y)
+            beams.append((x, y))
 
     manifolds_dic_paths[(spt[0], spt[1])] = count_per_splitter
 

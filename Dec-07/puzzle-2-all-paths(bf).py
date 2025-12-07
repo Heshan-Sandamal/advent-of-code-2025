@@ -9,21 +9,19 @@ for i, k in enumerate(grid[0]):
     if (k == "S"):
         beams.append((0, i))
 
-# Find the all paths. Works for the smaller case because so many paths
-# There are a lot of duplicate paths per splitter but this approach, we can not memorize paths
+# Find the all paths. Works for the smaller case but not for a larger grid because of so many paths
+# There are a lot of duplicated paths per splitter however, in this approach, we can not memorize the paths
 splits = 0
 while (len(beams) > 0):
 
     while (True):
-        beam = beams[0]
+        beam = beams.pop(0)
         x, y = beam[0] + 1, beam[1]
 
         if (x == len(grid)):
-            beams.remove((beam))
             splits += 1
             break
         elif (grid[x][y] == "^"):
-            beams.remove((beam))
 
             left, right = (x, y - 1), (x, y + 1)
 
@@ -35,6 +33,6 @@ while (len(beams) > 0):
 
             break
         else:
-            beams[0] = (x, y)
+            beams.append((x, y))
 
 print("Splits", splits)
