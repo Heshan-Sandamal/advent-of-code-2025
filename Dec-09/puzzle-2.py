@@ -14,7 +14,7 @@ for x in lines:
 polygon = Polygon((locations)).buffer(0.25)  # Create Polygon with given cells
 pairs = itertools.combinations(locations, 2)
 
-best = 0
+max_size = -1
 for p1, p2 in pairs:
     x1, y1 = p1
     x2, y2 = p2
@@ -22,12 +22,8 @@ for p1, p2 in pairs:
     new_pol = Polygon([(x1, y1), (x2, y2), (x2, y1), (x1, y2)])  # Create rectangle with 4 edges
 
     if polygon.covers(new_pol):
-        width = abs(x2 - x1) + 1
-        height = abs(y2 - y1) + 1
-        area = width * height
+        size = (abs(x1 - x2) + 1) * (abs(y1 - y2) + 1)
+        if (size > max_size):
+            max_size = size
 
-        if area > best:
-            best = area
-            print("Valid rectangle:", p1, p2, "area =", area)
-
-print("Largest rectangle", best)
+print("Largest rectangle", max_size)
