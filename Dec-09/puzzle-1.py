@@ -17,4 +17,4 @@ for p1, p2 in list(pairs):
     if (size > max_size):
         max_size = size
 
-print(max_size)
+print("Largest rectangle", max_size)

@@ -21,6 +21,7 @@ for p1, p2 in pairs:
 
     new_pol = Polygon([(x1, y1), (x2, y2), (x2, y1), (x1, y2)])  # Create rectangle with 4 edges
 
+    # Check whether the created rectangle is inside the original polygon
     if polygon.covers(new_pol):
         size = (abs(x1 - x2) + 1) * (abs(y1 - y2) + 1)
         if (size > max_size):
