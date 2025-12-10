@@ -1,10 +1,7 @@
-file = open("input.txt")
-lines = file.read().splitlines()
-
 import itertools
 
-ranges, ingredients = [], []
-ranges_input = True
+file = open("input.txt")
+lines = file.read().splitlines()
 
 total = []
 for line in lines:
@@ -14,6 +11,7 @@ for line in lines:
     for k in line_d[1:-1]:
         buttons.append([(int(g)) for g in k[1:-1].split(",")])
 
+    # No multiple presses of single button needed hence checking combinations of buttons
     min_p = 100000000000000000000000000
     for x in range(1, len(buttons)):
         pairs = itertools.combinations(buttons, x)
